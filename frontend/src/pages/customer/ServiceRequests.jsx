@@ -83,8 +83,8 @@ export default function ServiceRequests({ products, serviceRequests, onSubmit, o
   return (
     <>
       <div className="space-y-6 lg:space-y-8">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div>
+        <div className="customer-service-hero">
+          <div className="max-w-2xl">
             <h1 className="customer-page-title text-2xl lg:text-3xl">Service Requests</h1>
             <p className="customer-page-subtext mt-2 max-w-2xl text-sm leading-relaxed">
               Log appliance issues quickly and keep the full service timeline visible, from request intake through technician completion.
@@ -94,9 +94,9 @@ export default function ServiceRequests({ products, serviceRequests, onSubmit, o
             type="button"
             onClick={openModal}
             disabled={products.length === 0}
-            className="customer-primary-btn rounded-full px-5 py-2.5 text-sm disabled:cursor-not-allowed disabled:opacity-50"
+            className="customer-service-hero-button customer-primary-btn rounded-xl px-5 py-2.5 text-sm disabled:cursor-not-allowed disabled:opacity-50"
           >
-            Raise Request
+            Raise Service Request
           </button>
         </div>
 

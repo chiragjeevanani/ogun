@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { LuBell, LuHouse, LuPackage, LuPlus, LuUserRound, LuWrench } from 'react-icons/lu';
 import Support from '../customer/Support';
 import About from '../customer/About';
 import CustomerHome from '../customer/CustomerHome';
@@ -19,12 +20,12 @@ import {
 import { APP_DOMAIN, APP_NAME } from '../../constants/branding';
 
 const navItems = [
-  { id: 'home', label: 'Home', mobileLabel: 'Home', path: '/customer/home', icon: 'home' },
-  { id: 'products', label: 'My Products', mobileLabel: 'Products', path: '/customer/products', icon: 'products' },
-  { id: 'register', label: 'Register Product', mobileLabel: 'Register', path: '/customer/register-product', icon: 'register' },
-  { id: 'service', label: 'Service Requests', mobileLabel: 'Service', path: '/customer/service', icon: 'service' },
-  { id: 'notifications', label: 'Notifications', mobileLabel: 'Alerts', path: '/customer/notifications', icon: 'notifications' },
-  { id: 'profile', label: 'Profile', mobileLabel: 'Profile', path: '/customer/profile', icon: 'profile' },
+  { id: 'home', label: 'Home', mobileLabel: 'Home', path: '/customer/home', icon: LuHouse },
+  { id: 'products', label: 'My Products', mobileLabel: 'Products', path: '/customer/products', icon: LuPackage },
+  { id: 'register', label: 'Register Product', mobileLabel: 'Register', path: '/customer/register-product', icon: LuPlus },
+  { id: 'service', label: 'Service Requests', mobileLabel: 'Service', path: '/customer/service', icon: LuWrench },
+  { id: 'notifications', label: 'Notifications', mobileLabel: 'Alerts', path: '/customer/notifications', icon: LuBell },
+  { id: 'profile', label: 'Profile', mobileLabel: 'Profile', path: '/customer/profile', icon: LuUserRound },
 ];
 
 const mobileNavItems = navItems.filter((item) => item.id !== 'notifications');
@@ -57,54 +58,6 @@ const getDefaultCustomerProfile = () => {
     email: loginData.email || customerData.email || `customer@${APP_DOMAIN}`,
     phone: loginData.phone || customerData.phone || '',
   };
-};
-
-const renderIcon = (icon) => {
-  switch (icon) {
-    case 'home':
-      return (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 10.25 12 3l9 7.25V20a1 1 0 0 1-1 1h-5.5v-6h-5v6H4a1 1 0 0 1-1-1v-9.75Z" />
-        </svg>
-      );
-    case 'products':
-      return (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 7h16M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm3 7h4m-4 4h6" />
-        </svg>
-      );
-    case 'register':
-      return (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 5v14m7-7H5" />
-        </svg>
-      );
-    case 'service':
-      return (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M14.7 6.3a5 5 0 0 1 0 7.07l-5.4 5.39a2 2 0 1 1-2.82-2.82l5.4-5.4a1.5 1.5 0 0 0-2.12-2.11L4.7 13.52" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="m13 11 2 2" />
-        </svg>
-      );
-    case 'notifications':
-      return (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 17H5.76A1.76 1.76 0 0 1 4 15.24V14l1.4-1.4A2 2 0 0 0 6 11.2V9a6 6 0 0 1 12 0v2.2a2 2 0 0 0 .6 1.4L20 14v1.24A1.76 1.76 0 0 1 18.24 17H15Zm0 0a3 3 0 1 1-6 0" />
-        </svg>
-      );
-    case 'profile':
-      return (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm-8 14a4 4 0 0 1 8 0" />
-        </svg>
-      );
-    default:
-      return (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="4" strokeWidth={1.8} />
-        </svg>
-      );
-  }
 };
 
 const CustomerDashboard = () => {
@@ -326,6 +279,7 @@ const CustomerDashboard = () => {
               <nav className="customer-nav-shell rounded-[28px] p-3">
                 {navItems.map((item) => {
                   const active = item.id === activeNavId;
+                  const Icon = item.icon;
                   return (
                     <button
                       key={item.id}
@@ -335,14 +289,16 @@ const CustomerDashboard = () => {
                         active ? 'customer-nav-item-active shadow-sm' : ''
                       }`}
                     >
-                      <span className={active ? 'customer-nav-icon-active' : 'customer-nav-icon'}>{renderIcon(item.icon)}</span>
+                      <span className={active ? 'customer-nav-icon-active' : 'customer-nav-icon'}>
+                        <Icon className="h-5 w-5" />
+                      </span>
                       <span className="text-sm font-medium">{item.label}</span>
                     </button>
                   );
                 })}
               </nav>
 
-              <div className="customer-surface rounded-[28px] p-5">
+              <div className="customer-surface customer-card-item rounded-[28px] p-5">
                 <p className="customer-heading text-sm font-semibold">Need help?</p>
                 <p className="customer-subheading mt-2 text-sm leading-6">
                   Support and About stay one click away inside Profile, so the ownership workflow never feels disconnected.
@@ -366,9 +322,9 @@ const CustomerDashboard = () => {
                     className="customer-icon-button relative flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 hover:scale-105"
                     aria-label="Open notifications"
                   >
-                    {renderIcon('notifications')}
+                    <LuBell className="h-5 w-5" />
                     {unreadCount > 0 ? (
-                      <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#6B4F3B] px-1 text-[10px] font-semibold text-white">
+                      <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#6B4226] px-1 text-[10px] font-semibold text-white">
                         {unreadCount}
                       </span>
                     ) : null}
@@ -408,32 +364,19 @@ const CustomerDashboard = () => {
             </div>
 
             <main className="pt-[80px] pb-28 lg:pb-6">
-              <div className="transition-all duration-300">{renderPage()}</div>
+              <div key={currentPath} className="page customer-page-transition transition-all duration-300">
+                {renderPage()}
+              </div>
             </main>
           </div>
         </div>
       </div>
 
-      <div className="customer-floating-nav fixed bottom-4 left-1/2 z-[999] w-[90%] max-w-[420px] -translate-x-1/2 rounded-[40px] px-2 py-2.5 lg:hidden">
-        <nav className="flex w-full items-end justify-between gap-0">
+      <div className="customer-floating-nav lg:hidden">
+        <nav className="flex w-full items-center justify-around gap-0">
           {mobileNavItems.map((item) => {
             const active = item.id === activeNavId;
-            const isCenterAction = item.id === 'register';
-
-            if (isCenterAction) {
-              return (
-                <div key={item.id} className="customer-floating-nav-center-slot">
-                  <button
-                    type="button"
-                    onClick={() => navigateWithScroll(item.path)}
-                    className={`customer-floating-nav-center-btn ${active ? 'customer-floating-nav-center-btn-active' : ''}`}
-                    aria-label={item.label}
-                  >
-                    {renderIcon(item.icon)}
-                  </button>
-                </div>
-              );
-            }
+            const Icon = item.icon;
 
             return (
               <button
@@ -445,7 +388,7 @@ const CustomerDashboard = () => {
                 }`}
               >
                 <span className="customer-floating-nav-icon-wrap flex h-5 items-center justify-center">
-                  {renderIcon(item.icon)}
+                  <Icon className="h-5 w-5" />
                 </span>
                 <span className="customer-floating-nav-label text-[11px]">{item.mobileLabel}</span>
               </button>

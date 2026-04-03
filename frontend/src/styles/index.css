@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
   border: none !important;
   border-top: none !important;
   border-bottom: none !important;
@@ -29,7 +30,8 @@ html {
   border-bottom: none !important;
   border-top: none !important;
   box-shadow: none !important;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -52,7 +54,8 @@ body {
   border-top: none !important;
   outline: none !important;
   box-shadow: none !important;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -78,6 +81,7 @@ body::-webkit-scrollbar {
   outline: none !important;
   box-shadow: none !important;
   overflow: visible;
+  overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
