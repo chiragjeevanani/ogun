@@ -144,6 +144,10 @@ body.modal-open {
   border-bottom: 2px solid #C89A82 !important;
 }
 
+.customer-auth-page .customer-auth-underline-error:focus-within .auth-input-icon {
+  color: #5C3A21 !important;
+}
+
 .customer-auth-page .customer-auth-submit {
   box-shadow: 0 14px 28px rgba(92, 58, 33, 0.24) !important;
 }
@@ -171,6 +175,15 @@ body.modal-open {
 
 .customer-auth-page .customer-auth-underline input:focus ~ .input-icon {
   color: #5C3A21 !important;
+}
+
+/* Icon focus effect - changes color when input is focused */
+.customer-auth-page .customer-auth-underline:focus-within .auth-input-icon {
+  color: #5C3A21 !important;
+}
+
+.customer-auth-page .customer-auth-underline .auth-input-icon {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-panel .customer-form-screen {

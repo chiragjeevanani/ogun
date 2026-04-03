@@ -48,7 +48,7 @@ const UnderlineField = ({
     <div
       className={`customer-auth-underline flex items-center gap-3 bg-transparent pb-1 transition-all duration-200 ${error ? 'customer-auth-underline-error' : ''}`}
     >
-      <Icon className={`h-5 w-5 shrink-0 transition-colors duration-200 ${error ? 'text-[#C89A82]' : 'text-[#9B8B7B]'}`} />
+      <Icon className={`auth-input-icon h-5 w-5 shrink-0 transition-colors duration-200 ${error ? 'text-[#C89A82]' : 'text-[#9B8B7B]'}`} />
       <input
         {...inputProps}
         className="w-full border-0 bg-transparent py-3 text-[15px] text-[#2c2c2c] placeholder:text-[#B8A899] focus:outline-none"
