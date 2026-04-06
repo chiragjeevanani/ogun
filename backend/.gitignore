@@ -16,7 +16,6 @@ node_modules/
 .env.production.local
 .env.example
 
-
 # LOG FILES
 
 # Logs generated during runtime
@@ -27,7 +26,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
+OGUN_CRM_Updated_SOW.pdf
 # OS GENERATED FILES
 
 # MacOS
@@ -84,7 +83,7 @@ tmp/
 temp/
 *.tmp
 
-OGUN_CRM_Updated_SOW.pdf
+
 # DATABASE FILES
 
 # Local DB files
@@ -96,8 +95,8 @@ OGUN_CRM_Updated_SOW.pdf
 # UPLOADS / USER FILES
 
 # Ignore user uploaded files
-# uploads/
-# public/uploads/
+uploads/
+public/uploads/
 
 
 # CONFIG FILES (OPTIONAL)
