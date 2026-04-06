@@ -1,0 +1,129 @@
+# NODE MODULES
+
+# Dependency directory (auto-generated)
+node_modules/
+
+
+# ENVIRONMENT VARIABLES
+
+# Environment variables (secrets like API keys, DB URLs, JWT secrets)
+.env
+
+# Different environment configs
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.example
+
+# LOG FILES
+
+# Logs generated during runtime
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# OS GENERATED FILES
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+
+# IDE & EDITOR FILES
+
+# VS Code
+.vscode/
+
+# JetBrains (WebStorm, IntelliJ)
+.idea/
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+
+# BUILD / DIST FILES
+
+# Compiled output
+dist/
+build/
+
+# Next.js build
+.next/
+
+# React build
+out/
+
+
+# CACHE FILES
+
+.cache/
+.parcel-cache/
+.npm/
+.eslintcache
+
+
+# TESTING FILES
+
+coverage/
+.nyc_output/
+
+
+# TEMP FILES
+
+tmp/
+temp/
+*.tmp
+
+
+# DATABASE FILES
+
+# Local DB files
+*.sqlite
+*.sqlite3
+*.db
+
+
+# UPLOADS / USER FILES
+
+# Ignore user uploaded files
+uploads/
+public/uploads/
+
+
+# CONFIG FILES (OPTIONAL)
+
+# Ignore local config overrides
+config/local.json
+config/development.json
+
+
+# TYPESCRIPT
+
+# TypeScript build info
+*.tsbuildinfo
+
+
+# DOCKER (if used)
+
+# Ignore local Docker override files
+docker-compose.override.yml
+
+
+# MISC
+
+# Ignore backup files
+*.bak
+*.swp
+
+# Ignore compressed files (optional)
+*.zip
+*.tar.gz
